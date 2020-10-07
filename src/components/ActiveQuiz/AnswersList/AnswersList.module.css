@@ -1,0 +1,9 @@
+.AnswersList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    place-items: center;
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: 390px 390px;
+}
