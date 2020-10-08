@@ -8,10 +8,12 @@ class Quiz extends Component {
         isFinished: false,
         activeQuestion: 0,
         answerState: null, // { [id]: 'success' 'error' }
+        checkpoint: null,
         quiz: [
             {
                 question: 'Какого цвета небо?',
                 rightAnswerId: 2,
+                money: 500,
                 id: 1,
                 answers: [
                     {text: 'Черный', id: 1},
@@ -23,6 +25,7 @@ class Quiz extends Component {
             {
                 question: 'В каком году основали Санкт-Петербург?',
                 rightAnswerId: 3,
+                money: 1000,
                 id: 2,
                 answers: [
                     {text: '1700', id: 1},
@@ -52,21 +55,25 @@ class Quiz extends Component {
                 answerState: {[answerId]: 'success'}
             })
 
-            const timeout = window.setTimeout(() => {
+            const timeout = setTimeout(() => {
                 if (this.isQuizFinished()) {
                     this.setState({
-                        isFinished: true
+                        isFinished: true,
+                        checkpoint: this.state.quiz[this.state.activeQuestion].money
                     })
                 } else {
+
                     this.setState({
                         activeQuestion: this.state.activeQuestion + 1,
-                        answerState: null
+                        answerState: null,
+                        checkpoint: this.state.quiz[this.state.activeQuestion].money
                     })
                 }
-                window.clearTimeout(timeout)
+                clearTimeout(timeout)
             }, 1000)
         } else {
             this.setState({
+                isFinished: true,
                 answerState: {[answerId]: 'error'}
             })
         }
@@ -76,24 +83,25 @@ class Quiz extends Component {
         return this.state.activeQuestion + 1 === this.state.quiz.length
     }
 
-    retryHandler=()=>{
-this.setState({
-    isFinished: false,
-    activeQuestion: 0,
-    answerState: null,
+    retryHandler = () => {
+        this.setState({
+            isFinished: false,
+            activeQuestion: 0,
+            answerState: null,
 
-})
+        })
     }
 
     render() {
         return (
             <div className={classes.Quiz}>
+                {this.state.checkpoint}
                 <div className={classes.QuizWrapper}>
                     <h1>Ответьте на все вопросы</h1>
                     {this.state.isFinished
                         ? <FinishedQuiz
                             onRetry={this.retryHandler}
-                            />
+                        />
                         : <ActiveQuiz
                             answers={this.state.quiz[this.state.activeQuestion].answers}
                             question={this.state.quiz[this.state.activeQuestion].question}
