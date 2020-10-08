@@ -1,21 +1,33 @@
 .AnswerItem {
-border: 1px solid #ffffff;
-    border-radius: 5px;
+    border: 1px solid #D0D0D8;
+    box-sizing: border-box;
     padding: 5px 10px;
     margin-bottom: 5px;
     cursor: pointer;
-
-    background: #fff;
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    /*background: #fff;*/
     color: #000;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+
+    border-radius: 25px;
+    /*clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);*/
 }
+
 .AnswerItem:hover{
-    background: rgba(255,255,255,.2);
+    background: rgba(255,255,255,.1);
     transition: background .3s ease-in-out;
+    border: 1px solid #FF8B37;
+    box-sizing: border-box;
 }
 .AnswerItem.success {
-    background: rgba(161,240,69,.7);
+    background: #47D867;
+    border: 1px solid #47D867;
+    box-sizing: border-box;
+    transition: .3s;
 }
 .AnswerItem.error {
-    background: rgba(240,87,108,.7);
+    background: #EC6259;
+    border: 1px solid #EC6259;
+    box-sizing: border-box;
 }
