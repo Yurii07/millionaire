@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './FinishedQuiz.module.css';
-import thumbsUp from '../../img/Screenshot.png';
+import thumbsUp from '../../img/hand-1.svg';
 import Button from "../UI/Button/Button";
 
 const FinishedQuiz = (props) => {

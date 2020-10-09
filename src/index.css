@@ -11,3 +11,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Button {
+  font-family: 'Inter',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 116%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  border-radius: 12px;
+  color: #FFFFFF;
+  background: #FF8B37;
+  cursor: pointer;
+  outline: none;  border: 0;
+  max-width: 300px;
+  width: 100%;
+  padding: 20px 25px;
+}
+.Button:hover{
+  background: #FFAC70;
+}
+.Button:active {
+  background: #E87928;
+}
+
+.Button:focus {
+
+}
+
+.Button:disabled {
+
+}
