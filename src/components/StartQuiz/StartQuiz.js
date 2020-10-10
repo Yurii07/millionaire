@@ -7,14 +7,15 @@ const StartQuiz = (props) => {
     return (
         <div className={classes.StartQuiz}>
             <div className={classes.imgWrapper}>
-                <img src={thumbsUp} alt="thumbsUp"/>
+                <img className={classes.thumbsUp} src={thumbsUp} alt="thumbsUp"/>
             </div>
             <div className={classes.startWrapper}>
-                <h1 className={classes.headline}>Who wants to be a millionaire?</h1>
+                <h1 className={classes.headline}>Who wants to be<br/> a millionaire?</h1>
 
                 <button
                     className="Button"
-                    onClick={props.onClick}>Start</button>
+                    onClick={props.onClick}>Start
+                </button>
             </div>
 
         </div>

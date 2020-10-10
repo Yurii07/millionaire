@@ -5,13 +5,27 @@ import Backdrop from "../../UI/Backdrop/Backdrop";
 const links = [
     '$500', '$1000', '$2000'
 ]
-
+const API = 'https://yurii07.github.io/millionaire/data.json';
 class Drawer extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            question: [],
+            money:[]
+        };
+    }
+
+    // componentDidMount() {
+    //     fetch(API)
+    //         .then(response => response.json())
+    //         .then(data =>
+    //             this.setState({ question: data}));
+    // }
 
     renderLinks() {
         return links.slice(0).reverse().map((link, index) => {
             return (
-                <li key={index}>
+                <li className="QuestionItem" key={index}>
                     Link {link}
                 </li>
             )
@@ -19,8 +33,17 @@ class Drawer extends Component {
     }
 
     render() {
-        const cls = [classes.Drawer]
+        // const { question } = this.state;
+        // console.log(question,'this.state');
+        // console.log(this.state.question,'this.state');
+        // const items = this.state.map((item, key) =>
+        //
+        //     {item}
+        //
+        // );
+        // console.log(items,'itemse');
 
+        const cls = [classes.Drawer]
         if (!this.props.isOpen) {
             cls.push(classes.close)
         }

@@ -3,3 +3,34 @@
     justify-content: center;
     align-items: center;
 }
+@media (max-width: 576px) {
+    .FinishedQuiz {
+  flex-direction: column;
+
+    }
+}
+.FinishedQuiz .thumbsUp{
+    width: 100%;
+    height: auto;
+    display: block;
+
+}
+@media (max-width: 576px) {
+    .StartQuiz .thumbsUp{
+        /*display: none;*/
+
+    }
+}
+.FinishedQuiz .totalScore {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+
+}
+@media (max-width: 576px) {
+    .FinishedQuiz .totalScore{
+        text-align: center;
+
+    }
+}

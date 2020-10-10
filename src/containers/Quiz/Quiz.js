@@ -4,6 +4,24 @@ import ActiveQuiz from "../../components/ActiveQuiz/ActiveQuiz";
 import FinishedQuiz from "../../components/FinishedQuiz/FinishedQuiz";
 
 class Quiz extends Component {
+    // loadData() {
+    //     console.log("loading data");
+    //     fetch('https://yurii07.github.io/millionaire/data.json')
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             this.setState({ quiz: data });
+    //         })
+    //         .catch(err => console.error(this.props.url, err.toString()))
+    // }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = { quiz: null }; // initialize with null
+    // }
+    // componentDidMount() {
+    //     console.log('GrandChild did mount.');
+    //
+    //     this.loadData()
+    // }
     state = {
         isFinished: false,
         activeQuestion: 0,
@@ -75,11 +93,11 @@ class Quiz extends Component {
             this.setState({
                 answerState: {[answerId]: 'error'}
             })
-            setTimeout(()=>{
+            setTimeout(() => {
                 this.setState({
                     isFinished: true,
                 })
-            },2000)
+            }, 2000)
 
         }
     }
@@ -98,15 +116,17 @@ class Quiz extends Component {
     }
 
     render() {
+        console.log(this.state.quiz);
+
         return (
             <div className={classes.Quiz}>
-
-                {this.state.checkpoint}
                 <div className={classes.QuizWrapper}>
                     {/*<h1>Ответьте на все вопросы</h1>*/}
+
                     {this.state.isFinished
                         ? <FinishedQuiz
                             onRetry={this.retryHandler}
+                            checkpoint={this.state.checkpoint}
                         />
                         : <ActiveQuiz
                             answers={this.state.quiz[this.state.activeQuestion].answers}

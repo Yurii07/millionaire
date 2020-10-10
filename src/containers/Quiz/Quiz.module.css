@@ -1,7 +1,7 @@
 .Quiz {
     display: flex;
     justify-content: center;
-    padding-top: 100px;
+    /*padding-top: 100px;*/
     flex-grow: 1;
     width: 100%;
     background: #F5F5F7;
@@ -12,4 +12,5 @@
 }
 .QuizWrapper {
     /*width: 600px;*/
+    margin: auto;
 }

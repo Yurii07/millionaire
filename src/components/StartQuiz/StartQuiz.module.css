@@ -9,6 +9,18 @@
 .StartQuiz .img-wrapper{
 
 }
+.StartQuiz .thumbsUp{
+    width: 100%;
+    height: auto;
+    display: block;
+
+}
+@media (max-width: 576px) {
+    .StartQuiz .thumbsUp{
+    display: none;
+
+    }
+}
 .StartQuiz .start-wrapper{
 
 }
@@ -37,4 +49,11 @@
     flex-grow: 0;
     /*margin: 0px 64px;*/
     margin-bottom: 64px;
+
+}
+@media (max-width: 576px) {
+    .StartQuiz .headline{
+        font-size: 32px;
+        text-align: center;
+    }
 }

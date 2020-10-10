@@ -8,13 +8,16 @@ const FinishedQuiz = (props) => {
         <div className={classes.FinishedQuiz}>
 
             <div className="imgWrapper">
-            <img src={thumbsUp} alt="Screenshot"/>
+                <img className={classes.thumbsUp} src={thumbsUp} alt="Screenshot"/>
             </div>
 
-            <div className="totalScore">
+            <div className={classes.totalScore}>
                 <h2>Total score:</h2>
-                <div className="earned">$8,000 earned</div>
-                <Button onClick={props.onRetry} type="primary">Try again</Button>
+                <div className="earned">${props.checkpoint} earned</div>
+                <button className="Button"
+                        onClick={props.onRetry}>
+                    Try again
+                </button>
 
             </div>
 

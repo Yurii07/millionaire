@@ -25,10 +25,25 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    width: 90%;
 }
 
 .Drawer ul li {
     margin-bottom: 15px;
+    border: 1px solid #D0D0D8;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    /*margin-bottom: 5px;*/
+    cursor: pointer;
+    /*background: #fff;*/
+    color: #000;
+    display: flex;
+    justify-content: center;
+    /*width: 50%;*/
+
+    border-radius: 25px;
+    position: relative;
+    background: #FFFFFF;
 }
 
 .Drawer ul li a {
