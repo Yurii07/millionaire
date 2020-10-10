@@ -10,7 +10,7 @@ const StartQuiz = (props) => {
                 <img className={classes.thumbsUp} src={thumbsUp} alt="thumbsUp"/>
             </div>
             <div className={classes.startWrapper}>
-                <h1 className={classes.headline}>Who wants to be<br/> a millionaire?</h1>
+                <h1 className={classes.headline}>Who wants to be <br/> a millionaire?</h1>
 
                 <button
                     className="Button"

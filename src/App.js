@@ -1,10 +1,20 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Layout from "./hoc/Layout/Layout";
 import Quiz from "./containers/Quiz/Quiz";
 import StartQuiz from "./components/StartQuiz/StartQuiz";
 
 const App = () => {
     const [isStart, setIsStarted] = useState(false);
+    const [quiz, setQuiz] = useState([]);
+
+    useEffect(() => {
+        fetch('https://yurii07.github.io/millionaire/data.json')
+            .then(response => response.json())
+            .then(data => {
+                setQuiz(data);
+            })
+            .catch(err => console.error(this.props.url, err.toString()))
+    },[]);
 
     const startGame = () => setIsStarted(true);
 
@@ -14,7 +24,7 @@ const App = () => {
 
             {isStart
                 ? <Layout>
-                    <Quiz/>
+                    <Quiz quizData={quiz}/>
                 </Layout>
                 :
                 <StartQuiz

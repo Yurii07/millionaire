@@ -4,56 +4,56 @@ import ActiveQuiz from "../../components/ActiveQuiz/ActiveQuiz";
 import FinishedQuiz from "../../components/FinishedQuiz/FinishedQuiz";
 
 class Quiz extends Component {
-    // loadData() {
-    //     console.log("loading data");
-    //     fetch('https://yurii07.github.io/millionaire/data.json')
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             this.setState({ quiz: data });
-    //         })
-    //         .catch(err => console.error(this.props.url, err.toString()))
-    // }
-    // constructor(props) {
-    //     super(props);
-    //     this.state = { quiz: null }; // initialize with null
-    // }
-    // componentDidMount() {
-    //     console.log('GrandChild did mount.');
-    //
-    //     this.loadData()
-    // }
-    state = {
-        isFinished: false,
-        activeQuestion: 0,
-        answerState: null, // { [id]: 'success' 'error' }
-        checkpoint: null,
-        quiz: [
-            {
-                question: 'Какого цвета небо?',
-                rightAnswerId: 2,
-                money: 500,
-                id: 1,
-                answers: [
-                    {text: 'Черный', id: 1},
-                    {text: 'Синий', id: 2},
-                    {text: 'Красный', id: 3},
-                    {text: 'Зеленый', id: 4}
-                ]
-            },
-            {
-                question: 'В каком году основали Санкт-Петербург?',
-                rightAnswerId: 3,
-                money: 1000,
-                id: 2,
-                answers: [
-                    {text: '1700', id: 1},
-                    {text: '1702', id: 2},
-                    {text: '1703', id: 3},
-                    {text: '1803', id: 4}
-                ]
-            }
-        ]
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isFinished: false,
+            activeQuestion: 0,
+            answerState: null, // { [id]: 'success' 'error' }
+            checkpoint: null,
+
+        }
     }
+
+
+    componentDidMount() {
+
+    }
+
+    // state = {
+    //     isFinished: false,
+    //     activeQuestion: 0,
+    //     answerState: null, // { [id]: 'success' 'error' }
+    //     checkpoint: null,
+    //     // quiz: [
+    //     //     {
+    //     //         question: 'Какого цвета небо?',
+    //     //         rightAnswerId: 2,
+    //     //         money: 500,
+    //     //         id: 1,
+    //     //         answers: [
+    //     //             {text: 'Черный', id: 1},
+    //     //             {text: 'Синий', id: 2},
+    //     //             {text: 'Красный', id: 3},
+    //     //             {text: 'Зеленый', id: 4}
+    //     //         ]
+    //     //     },
+    //     //     {
+    //     //         question: 'В каком году основали Санкт-Петербург?',
+    //     //         rightAnswerId: 3,
+    //     //         money: 1000,
+    //     //         id: 2,
+    //     //         answers: [
+    //     //             {text: '1700', id: 1},
+    //     //             {text: '1702', id: 2},
+    //     //             {text: '1703', id: 3},
+    //     //             {text: '1803', id: 4}
+    //     //         ]
+    //     //     }
+    //     // ]
+    // }
 
     onAnswerClickHandler = answerId => {
 
@@ -65,7 +65,7 @@ class Quiz extends Component {
             }
         }
 
-        const question = this.state.quiz[this.state.activeQuestion]
+        const question = this.props.quizData[this.state.activeQuestion]
 
         if (question.rightAnswerId === answerId) {
 
@@ -77,14 +77,14 @@ class Quiz extends Component {
                 if (this.isQuizFinished()) {
                     this.setState({
                         isFinished: true,
-                        checkpoint: this.state.quiz[this.state.activeQuestion].money
+                        checkpoint: this.props.quizData[this.state.activeQuestion].money
                     })
                 } else {
 
                     this.setState({
                         activeQuestion: this.state.activeQuestion + 1,
                         answerState: null,
-                        checkpoint: this.state.quiz[this.state.activeQuestion].money
+                        checkpoint: this.props.quizData[this.state.activeQuestion].money
                     })
                 }
                 clearTimeout(timeout)
@@ -103,7 +103,7 @@ class Quiz extends Component {
     }
 
     isQuizFinished() {
-        return this.state.activeQuestion + 1 === this.state.quiz.length
+        return this.state.activeQuestion + 1 === this.props.quizData.length
     }
 
     retryHandler = () => {
@@ -111,17 +111,15 @@ class Quiz extends Component {
             isFinished: false,
             activeQuestion: 0,
             answerState: null,
-
         })
     }
 
     render() {
-        console.log(this.state.quiz);
+        console.log(this.props.quizData);
 
         return (
             <div className={classes.Quiz}>
                 <div className={classes.QuizWrapper}>
-                    {/*<h1>Ответьте на все вопросы</h1>*/}
 
                     {this.state.isFinished
                         ? <FinishedQuiz
@@ -129,10 +127,10 @@ class Quiz extends Component {
                             checkpoint={this.state.checkpoint}
                         />
                         : <ActiveQuiz
-                            answers={this.state.quiz[this.state.activeQuestion].answers}
-                            question={this.state.quiz[this.state.activeQuestion].question}
+                            answers={this.props.quizData[this.state.activeQuestion].answers}
+                            question={this.props.quizData[this.state.activeQuestion].question}
                             onAnswerClick={this.onAnswerClickHandler}
-                            quizLength={this.state.quiz.length}
+                            quizLength={this.props.quizData.length}
                             answerNumber={this.state.activeQuestion + 1}
                             state={this.state.answerState}
                         />
