@@ -3,13 +3,13 @@ import classes from './Drawer.module.css'
 import Backdrop from "../../UI/Backdrop/Backdrop";
 
 const links = [
-    1, 2, 3
+    '$500', '$1000', '$2000'
 ]
 
 class Drawer extends Component {
 
     renderLinks() {
-        return links.map((link, index) => {
+        return links.slice(0).reverse().map((link, index) => {
             return (
                 <li key={index}>
                     Link {link}
@@ -27,6 +27,7 @@ class Drawer extends Component {
 
         return (
             <>
+
                 <nav className={cls.join(' ')}>
                     <ul>
                         { this.renderLinks() }

@@ -70,12 +70,17 @@ class Quiz extends Component {
                     })
                 }
                 clearTimeout(timeout)
-            }, 1000)
+            }, 2000)
         } else {
             this.setState({
-                isFinished: true,
                 answerState: {[answerId]: 'error'}
             })
+            setTimeout(()=>{
+                this.setState({
+                    isFinished: true,
+                })
+            },2000)
+
         }
     }
 
@@ -95,9 +100,10 @@ class Quiz extends Component {
     render() {
         return (
             <div className={classes.Quiz}>
+
                 {this.state.checkpoint}
                 <div className={classes.QuizWrapper}>
-                    <h1>Ответьте на все вопросы</h1>
+                    {/*<h1>Ответьте на все вопросы</h1>*/}
                     {this.state.isFinished
                         ? <FinishedQuiz
                             onRetry={this.retryHandler}

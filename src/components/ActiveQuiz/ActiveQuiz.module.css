@@ -1,12 +1,35 @@
 .ActiveQuiz{
-    padding: 20px;
+    /*padding: 20px;*/
     color: #ffffff;
-    border: 2px solid #ffffff;
-    border-radius: 5px;
-    margin: 0 10px;
+    /*border: 2px solid #ffffff;*/
+    /*border-radius: 5px;*/
+    /*margin: 0 10px;*/
     box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 .Question {
     display: flex;
     justify-content: space-between;
+    font-family: 'Inter',sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 116%;
+    /* or 37px */
+
+    /*display: flex;*/
+    align-items: center;
+
+    /* Black-100 */
+
+    color: #1C1C21;
 }

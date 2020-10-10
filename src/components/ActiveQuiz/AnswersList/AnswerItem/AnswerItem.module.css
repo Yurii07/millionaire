@@ -11,23 +11,51 @@
     width: 50%;
 
     border-radius: 25px;
+    position: relative;
+    background: #FFFFFF;
     /*clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);*/
 }
-
 .AnswerItem:hover{
-    background: rgba(255,255,255,.1);
+    background: #FFFFFF;
     transition: background .3s ease-in-out;
     border: 1px solid #FF8B37;
     box-sizing: border-box;
 }
+.AnswerItem:hover:before,.AnswerItem:hover:after {
+    border: 1px solid #FF8B37;
+}
+.AnswerItem::before{
+    content: "";
+    width: 17px;
+    left: -20px;
+    border: 1px solid #D0D0D8;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.AnswerItem::after{
+    content: "";
+    width: 17px;
+    right: -20px;
+    border: 1px solid #D0D0D8;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .AnswerItem.success {
-    background: #47D867;
+    background: #E6FAEA;
     border: 1px solid #47D867;
     box-sizing: border-box;
     transition: .3s;
 }
+.AnswerItem.success:before ,
+.AnswerItem.success:after{  border: 1px solid #47D867;}
+
 .AnswerItem.error {
-    background: #EC6259;
+    background: #FDEEED;
     border: 1px solid #EC6259;
     box-sizing: border-box;
 }
+.AnswerItem.error:before ,
+.AnswerItem.error:after{  border: 1px solid #EC6259;}
