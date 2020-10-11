@@ -1,78 +1,312 @@
 [
   {
-    "question": "Какого цвета небо?",
-    "rightAnswerId": 2,
+    "question": "In what children's game are participants chased by someone designated \"It\"?",
+    "rightAnswerId": 1,
     "currencySymbol": "$",
-    "money": 500,
+    "money": "500",
     "id": 1,
     "prevQuiz": false,
     "answers": [
       {
-        "text": "Черный",
+        "text": "Tag",
         "id": 1
       },
       {
-        "text": "Синий",
+        "text": "Simon Says",
         "id": 2
       },
       {
-        "text": "Красный",
+        "text": "Charades",
         "id": 3
       },
       {
-        "text": "Зеленый",
+        "text": "Hopscotch",
         "id": 4
       }
     ]
   },
   {
-    "question": "В каком году основали Санкт-Петербург?",
-    "rightAnswerId": 3,
+    "question": "On a radio, stations are changed by using what control?",
+    "rightAnswerId": 1,
     "currencySymbol": "$",
-    "money": 1000,
+    "money": "1,000",
     "id": 2,
     "prevQuiz": false,
     "answers": [
       {
-        "text": "1700",
+        "text": "Tuning",
         "id": 1
       },
       {
-        "text": "1702",
+        "text": "Volume",
         "id": 2
       },
       {
-        "text": "1703",
+        "text": "Bass",
         "id": 3
       },
       {
-        "text": "1803",
+        "text": "Treble",
         "id": 4
       }
     ]
   },
   {
-    "question": "Какого цвета солнце?",
+    "question": "Which material is most dense?",
     "rightAnswerId": 4,
     "currencySymbol": "$",
-    "money": 2500,
+    "money": "2,000",
     "id": 3,
     "prevQuiz": false,
     "answers": [
       {
-        "text": "Черный",
+        "text": "Silver",
         "id": 1
       },
       {
-        "text": "Синий",
+        "text": "Styrofoam",
         "id": 2
       },
       {
-        "text": "Красный",
+        "text": "Butter",
         "id": 3
       },
       {
-        "text": "желтый",
+        "text": "Gold",
+        "id": 4
+      }
+    ]
+  },
+  {
+    "question": "Which state in the United States is largest by area?",
+    "rightAnswerId": 1,
+    "currencySymbol": "$",
+    "money": "4,000",
+    "id": 4,
+    "prevQuiz": false,
+    "answers": [
+      {
+        "text": "Alaska",
+        "id": 1
+      },
+      {
+        "text": "California",
+        "id": 2
+      },
+      {
+        "text": "Texas",
+        "id": 3
+      },
+      {
+        "text": "Hawaii",
+        "id": 4
+      }
+    ]
+  },
+  {
+    "question": "What is Aurora Borealis commonly known as?",
+    "rightAnswerId": 1,
+    "currencySymbol": "$",
+    "money": "8,000",
+    "id": 5,
+    "prevQuiz": false,
+    "answers": [
+      {
+        "text": "Fairy Dust",
+        "id": 1
+      },
+      {
+        "text": "Northern Lights",
+        "id": 2
+      },
+      {
+        "text": "Book of ages",
+        "id": 3
+      },
+      {
+        "text": "a Game of Thrones main character",
+        "id": 4
+      }
+    ]
+  },
+  {
+    "question": "Galileo was an Italian astronomer who",
+    "rightAnswerId": 3,
+    "currencySymbol": "$",
+    "money": "16,000",
+    "id": 6,
+    "prevQuiz": false,
+    "answers": [
+      {
+        "text": "developed the telescope",
+        "id": 1
+      },
+      {
+        "text": "discovered four satellites of Jupiter",
+        "id": 2
+      },
+      {
+        "text": "discovered that the movement of pendulum produces a regular time measurement",
+        "id": 3
+      },
+      {
+        "text": "All of the above",
+        "id": 4
+      }
+    ]
+  },
+  {
+    "question": "Exposure to sunlight helps a person improve his health because",
+    "rightAnswerId": 3,
+    "currencySymbol": "$",
+    "money": "32,000",
+    "id": 7,
+    "prevQuiz": false,
+    "answers": [
+      {
+        "text": "the infrared light kills bacteria in the body",
+        "id": 1
+      },
+      {
+        "text": "resistance power increases",
+        "id": 2
+      },
+      {
+        "text": "the pigment cells in the skin get stimulated and produce a healthy tan",
+        "id": 3
+      },
+      {
+        "text": "the ultraviolet rays convert skin oil into Vitamin D",
+        "id": 4
+      }
+    ]
+  },
+  {
+    "question": "Sir Thomas Fearnley Cup is awarded to",
+    "rightAnswerId": 1,
+    "currencySymbol": "$",
+    "money": "64,000",
+    "id": 8,
+    "prevQuiz": false,
+    "answers": [
+      {
+        "text": "a club or a local sport association for remarkable achievements",
+        "id": 1
+      },
+      {
+        "text": "amateur athlete, not necessarily an Olympian",
+        "id": 2
+      },
+      {
+        "text": "National Olympic Committee for outstanding work",
+        "id": 3
+      },
+      {
+        "text": "None of the above",
+        "id": 4
+      }
+    ]
+  },
+  {
+    "question": "Oscar Awards were instituted in",
+    "rightAnswerId": 1,
+    "currencySymbol": "$",
+    "money": "125,000",
+    "id": 9,
+    "prevQuiz": false,
+    "answers": [
+      {
+        "text": "1968",
+        "id": 1
+      },
+      {
+        "text": "1929",
+        "id": 2
+      },
+      {
+        "text": "1901",
+        "id": 3
+      },
+      {
+        "text": "1965",
+        "id": 4
+      }
+    ]
+  },
+  {
+    "question": "When did Margaret Thatcher became the first female Prime Minister of Britain?",
+    "rightAnswerId": 2,
+    "currencySymbol": "$",
+    "money": "250,000",
+    "id": 10,
+    "prevQuiz": false,
+    "answers": [
+      {
+        "text": "1998",
+        "id": 1
+      },
+      {
+        "text": "1989",
+        "id": 2
+      },
+      {
+        "text": "1979",
+        "id": 3
+      },
+      {
+        "text": "1800",
+        "id": 4
+      }
+    ]
+  },
+  {
+    "question": "When is the International Workers' Day?",
+    "rightAnswerId": 2,
+    "currencySymbol": "$",
+    "money": "500,000",
+    "id": 11,
+    "prevQuiz": false,
+    "answers": [
+      {
+        "text": "15th April",
+        "id": 1
+      },
+      {
+        "text": "12th December",
+        "id": 2
+      },
+      {
+        "text": "1st May",
+        "id": 3
+      },
+      {
+        "text": "1st August",
+        "id": 4
+      }
+    ]
+  },
+  {
+    "question": "When did China test their first atomic device?",
+    "rightAnswerId": 3,
+    "currencySymbol": "$",
+    "money": "1,000,000",
+    "id": 12,
+    "prevQuiz": false,
+    "answers": [
+      {
+        "text": "1962",
+        "id": 1
+      },
+      {
+        "text": "1963",
+        "id": 2
+      },
+      {
+        "text": "1964",
+        "id": 3
+      },
+      {
+        "text": "1965",
         "id": 4
       }
     ]
