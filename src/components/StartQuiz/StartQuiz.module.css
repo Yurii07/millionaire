@@ -4,55 +4,39 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
-.StartQuiz .img-wrapper{
 
-}
-.StartQuiz .thumbsUp{
+.StartQuiz .thumbsUp {
     width: 100%;
     height: auto;
     display: block;
-
 }
-@media (max-width: 576px) {
-    .StartQuiz .thumbsUp{
-    display: none;
 
+@media (max-width: 576px) {
+    .StartQuiz .thumbsUp {
+        display: none;
     }
 }
-.StartQuiz .start-wrapper{
 
-}
-.StartQuiz .headline{
-    /* Desktop / Headline */
-
-    font-family: 'Inter',sans-serif;
+.StartQuiz .headline {
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 56px;
     line-height: 116%;
-    /* or 65px */
-
     display: flex;
     align-items: center;
-
-    /* Black-100 */
-
     color: #1C1C21;
-
-    /* Inside Auto Layout */
-
     flex: none;
     order: 0;
     align-self: center;
     flex-grow: 0;
-    /*margin: 0px 64px;*/
     margin-bottom: 64px;
-
+    max-width: 460px;
 }
+
 @media (max-width: 576px) {
-    .StartQuiz .headline{
+    .StartQuiz .headline {
         font-size: 32px;
         text-align: center;
     }

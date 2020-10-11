@@ -122,7 +122,7 @@ class Quiz extends Component {
 
             return (
                 <div className={classes.Quiz}>
-                    <div className={classes.QuizWrapper}>
+                    <div className={classes.Wrapper}>
 
                         {this.state.isFinished
                             ? <FinishedQuiz
