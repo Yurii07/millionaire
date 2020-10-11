@@ -6,21 +6,16 @@ import Button from "../UI/Button/Button";
 const FinishedQuiz = (props) => {
     return (
         <div className={classes.FinishedQuiz}>
-
             <div className="imgWrapper">
                 <img className={classes.thumbsUp} src={thumbsUp} alt="Screenshot"/>
             </div>
-
             <div className={classes.totalScore}>
                 <h2>Total score:</h2>
                 <div className="earned">${props.checkpoint} earned</div>
-                <button className="Button"
-                        onClick={props.onRetry}>
+                <Button onClick={props.onRetry}>
                     Try again
-                </button>
-
+                </Button>
             </div>
-
         </div>
     );
 };

@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import classes from './Quiz.module.css';
 import ActiveQuiz from "../../components/ActiveQuiz/ActiveQuiz";
 import FinishedQuiz from "../../components/FinishedQuiz/FinishedQuiz";
+import Drawer from "../../components/Navigation/Drawer/Drawer";
+import MenuToggle from "../../components/Navigation/MenuToggle/MenuToggle";
 
 class Quiz extends Component {
 
@@ -13,47 +15,9 @@ class Quiz extends Component {
             activeQuestion: 0,
             answerState: null, // { [id]: 'success' 'error' }
             checkpoint: null,
-
+            menu: false,
         }
     }
-
-
-    componentDidMount() {
-
-    }
-
-    // state = {
-    //     isFinished: false,
-    //     activeQuestion: 0,
-    //     answerState: null, // { [id]: 'success' 'error' }
-    //     checkpoint: null,
-    //     // quiz: [
-    //     //     {
-    //     //         question: 'Какого цвета небо?',
-    //     //         rightAnswerId: 2,
-    //     //         money: 500,
-    //     //         id: 1,
-    //     //         answers: [
-    //     //             {text: 'Черный', id: 1},
-    //     //             {text: 'Синий', id: 2},
-    //     //             {text: 'Красный', id: 3},
-    //     //             {text: 'Зеленый', id: 4}
-    //     //         ]
-    //     //     },
-    //     //     {
-    //     //         question: 'В каком году основали Санкт-Петербург?',
-    //     //         rightAnswerId: 3,
-    //     //         money: 1000,
-    //     //         id: 2,
-    //     //         answers: [
-    //     //             {text: '1700', id: 1},
-    //     //             {text: '1702', id: 2},
-    //     //             {text: '1703', id: 3},
-    //     //             {text: '1803', id: 4}
-    //     //         ]
-    //     //     }
-    //     // ]
-    // }
 
     onAnswerClickHandler = answerId => {
 
@@ -114,8 +78,19 @@ class Quiz extends Component {
         })
     }
 
+    toggleMenuHandler = () => {
+        this.setState({
+            menu: !this.state.menu
+        })
+    }
+    menuCloseHandler = () => {
+        this.setState({
+            menu: false
+        })
+    }
+
     render() {
-        console.log(this.props.quizData);
+        // console.log(this.props.quizData,'this.props.quizData');
 
         return (
             <div className={classes.Quiz}>
@@ -126,14 +101,27 @@ class Quiz extends Component {
                             onRetry={this.retryHandler}
                             checkpoint={this.state.checkpoint}
                         />
-                        : <ActiveQuiz
-                            answers={this.props.quizData[this.state.activeQuestion].answers}
-                            question={this.props.quizData[this.state.activeQuestion].question}
-                            onAnswerClick={this.onAnswerClickHandler}
-                            quizLength={this.props.quizData.length}
-                            answerNumber={this.state.activeQuestion + 1}
-                            state={this.state.answerState}
-                        />
+                        :
+                        <>
+                            <Drawer isOpen={this.state.menu}
+                                    onClose={this.menuCloseHandler}
+                                    quizData={this.props.quizData}
+                            />
+
+                            <MenuToggle
+                                onToggle={this.toggleMenuHandler}
+                                isOpen={this.state.menu}
+                            />
+                            <ActiveQuiz
+                                answers={this.props.quizData[this.state.activeQuestion].answers}
+                                question={this.props.quizData[this.state.activeQuestion].question}
+                                onAnswerClick={this.onAnswerClickHandler}
+                                quizLength={this.props.quizData.length}
+                                answerNumber={this.state.activeQuestion + 1}
+                                state={this.state.answerState}
+                            />
+                        </>
+
                     }
 
                 </div>
