@@ -8,16 +8,7 @@
     transition: opacity, left .22s ease-in;
     z-index: 100;
 }
-/*@media (min-width: 800px) {*/
-/*     .MenuToggle  {*/
-/*       display: none;*/
-/*    }*/
-/*}*/
-/*@media (max-width: 800px) {*/
-/*    .MenuToggle  {*/
-/*        display: block;*/
-/*    }*/
-/*}*/
+
 .MenuToggle:hover {
     opacity: .7;
 }
@@ -25,8 +16,13 @@
 .MenuToggle.open {
     right: 320px;
 }
-/*@media (min-width: 576px) {*/
-/*    .MenuToggle.open {*/
-/*        right: 320px;*/
-/*    }*/
-/*}*/
+
+@media (max-width: 380px) {
+    .MenuToggle.open {
+        right: 280px;
+
+    }
+}
+
+
+

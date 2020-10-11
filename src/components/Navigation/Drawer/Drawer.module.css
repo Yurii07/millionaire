@@ -26,6 +26,8 @@
     margin: 0;
     padding: 0;
     width: 90%;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .Drawer ul li {
@@ -33,26 +35,40 @@
     border: 1px solid #D0D0D8;
     box-sizing: border-box;
     padding: 5px 10px;
-    /*margin-bottom: 5px;*/
-    cursor: pointer;
-    /*background: #fff;*/
     color: #000;
     display: flex;
     justify-content: center;
-    /*width: 50%;*/
-
     border-radius: 25px;
     position: relative;
     background: #FFFFFF;
 }
-.Drawer ul li .active {
-    background: red;
+
+.Drawer ul li:before {
+    content: "";
+    width: 17px;
+    left: -20px;
+    border: 1px solid #D0D0D8;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
+
+.Drawer ul li:after {
+    content: "";
+    width: 17px;
+    right: -20px;
+    border: 1px solid #D0D0D8;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .Drawer ul li a {
-    color: #363d54;
+    color: #1C1C21;
     font-size: 30px;
     text-decoration: none;
-    background-color: #fff;
+    background: #FFFFFF;
+    border: 1px solid #D0D0D8;
     position: relative;
     padding: 0 20px 10px 20px;
     transition: opacity .3s;
@@ -62,15 +78,31 @@
     opacity: .7;
 }
 
-.Drawer li .quiz{
-    color: red;
-    background: red;
-}
+
 .Drawer .active {
+    background: #FFFFFF;
     border: 1px solid #FF8B37;
     color: #FF8B37;
 }
+
+.Drawer ul li.active:before {
+    border: 1px solid #FF8B37;
+}
+
+.Drawer ul li.active:after {
+    border: 1px solid #FF8B37;
+}
+
 .Drawer .unactive {
-    border: 1px solid fuchsia;
-    color: fuchsia;
+    background: #FFFFFF;
+    border: 1px solid #D0D0D8;
+    color: #D0D0D8;
+}
+
+.Drawer ul li.unactive:before {
+    border: 1px solid #D0D0D8;
+}
+
+.Drawer ul li.unactive:after {
+    border: 1px solid #D0D0D8;
 }

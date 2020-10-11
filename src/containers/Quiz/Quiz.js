@@ -94,10 +94,12 @@ class Quiz extends Component {
     }
 
     retryHandler = () => {
+
         this.setState({
             isFinished: false,
             activeQuestion: 0,
             answerState: null,
+            checkpoint: null,
         })
     }
 

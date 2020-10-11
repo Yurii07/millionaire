@@ -8,23 +8,31 @@
     color: #000;
     display: flex;
     justify-content: center;
-    width: 50%;
-
+    width: 85%;
     border-radius: 25px;
     position: relative;
     background: #FFFFFF;
     /*clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);*/
 }
-.AnswerItem:hover{
+
+@media (max-width: 800px) {
+    .AnswerItem {
+        width: 100%;
+    }
+}
+
+.AnswerItem:hover {
     background: #FFFFFF;
     transition: background .3s ease-in-out;
     border: 1px solid #FF8B37;
     box-sizing: border-box;
 }
-.AnswerItem:hover:before,.AnswerItem:hover:after {
+
+.AnswerItem:hover:before, .AnswerItem:hover:after {
     border: 1px solid #FF8B37;
 }
-.AnswerItem::before{
+
+.AnswerItem::before {
     content: "";
     width: 17px;
     left: -20px;
@@ -33,7 +41,8 @@
     top: 50%;
     transform: translateY(-50%);
 }
-.AnswerItem::after{
+
+.AnswerItem::after {
     content: "";
     width: 17px;
     right: -20px;
@@ -49,13 +58,19 @@
     box-sizing: border-box;
     transition: .3s;
 }
-.AnswerItem.success:before ,
-.AnswerItem.success:after{  border: 1px solid #47D867;}
+
+.AnswerItem.success:before,
+.AnswerItem.success:after {
+    border: 1px solid #47D867;
+}
 
 .AnswerItem.error {
     background: #FDEEED;
     border: 1px solid #EC6259;
     box-sizing: border-box;
 }
-.AnswerItem.error:before ,
-.AnswerItem.error:after{  border: 1px solid #EC6259;}
+
+.AnswerItem.error:before,
+.AnswerItem.error:after {
+    border: 1px solid #EC6259;
+}

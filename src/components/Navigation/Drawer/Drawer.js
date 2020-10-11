@@ -9,8 +9,7 @@ class Drawer extends Component {
     }
 
     renderLinks() {
-        return this.props.quizData.slice(0).reverse().map((items, index) =>
-
+        return this.props.quizData.map((items, index) =>
             <li className={this.getMoneyCssClasses(index, items)} key={index}>
                 $ {items.money}
             </li>

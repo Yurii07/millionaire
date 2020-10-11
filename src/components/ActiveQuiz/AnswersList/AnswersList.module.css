@@ -5,5 +5,14 @@
     place-items: center;
     flex-direction: column;
     display: grid;
-    grid-template-columns: 390px 390px;
+    grid-template-columns: 50% 50%;
+    width: 500px;
+}
+
+@media (max-width: 800px) {
+    .AnswersList {
+        grid-template-columns: 100%;
+        width: 100%;
+
+    }
 }
