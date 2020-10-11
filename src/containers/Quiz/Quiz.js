@@ -67,12 +67,12 @@ class Quiz extends Component {
                         checkpoint: this.props.quizData[this.state.activeQuestion].money
                     })
                 } else {
-                    this.props.quizData[0].prevQuiz = true;
+                    this.props.quizData[this.state.activeQuestion].prevQuiz = true;
+
                     this.setState({
                         activeQuestion: this.state.activeQuestion + 1,
                         answerState: null,
-                        checkpoint: this.props.quizData[this.state.activeQuestion].money,
-                        prevQuiz: 1
+                        checkpoint: this.props.quizData[this.state.activeQuestion].money
                     })
                 }
                 clearTimeout(timeout)
@@ -133,6 +133,7 @@ class Quiz extends Component {
                                         onClose={this.menuCloseHandler}
                                         quizData={this.props.quizData}
                                         activeQuiz={this.state.activeQuestion }
+
                                 />
                                 {isMobile &&
                                     <MenuToggle

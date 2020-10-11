@@ -5,28 +5,25 @@ import Backdrop from "../../UI/Backdrop/Backdrop";
 class Drawer extends Component {
     constructor(props) {
         super(props);
-        this.state = { activeQuestion: 0 };
+        this.state = {activeQuestion: 0};
     }
 
-
     renderLinks() {
-        return this.props.quizData.map((items, index) =>
+        return this.props.quizData.slice(0).reverse().map((items, index) =>
 
-            <li className={
-                (this.props.activeQuiz === index ? classes.active : '')
-                || (this.props.quizData[index].prevQuiz ? classes.unactive : '' )} key={index}>
+            <li className={this.getMoneyCssClasses(index, items)} key={index}>
                 $ {items.money}
             </li>
         );
     }
 
+    getMoneyCssClasses(index, items) {
+        return (this.props.activeQuiz === index ? classes.active : '') ||
+            (items.prevQuiz ? classes.unactive : '');
+    }
+
     render() {
-// const xx = this.props.quizData[0].prevQuiz = true;
-//         console.log(this.props.quizData.prevQuiz,'this.props.quizData');
-//         console.log(xx,'xx');
-
-
-        console.log(this.props.activeQuiz,'this.props.activeQuiz Drawer');
+        console.log(this.props.activeQuiz, 'this.props.activeQuiz Drawer');
 
         const cls = [classes.Drawer]
         if (!this.props.isOpen) {
@@ -36,8 +33,8 @@ class Drawer extends Component {
         return (
             <>
                 <nav className={cls.join(' ')}>
-                    <ul >
-                        { this.renderLinks() }
+                    <ul>
+                        {this.renderLinks()}
                     </ul>
                 </nav>
                 {/*{this.props.isOpen ? <Backdrop onClick={this.props.onClose}/> : null}*/}
