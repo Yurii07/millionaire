@@ -55,8 +55,8 @@
     "question": "Какого цвета солнце?",
     "rightAnswerId": 4,
     "currencySymbol": "$",
-    "money": 500,
-    "id": 1,
+    "money": 2500,
+    "id": 3,
     "prevQuiz": false,
     "answers": [
       {
