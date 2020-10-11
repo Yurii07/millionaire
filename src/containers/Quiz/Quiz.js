@@ -16,9 +16,32 @@ class Quiz extends Component {
             answerState: null, // { [id]: 'success' 'error' }
             checkpoint: null,
             menu: false,
+            width: window.innerWidth,
+            prevQuiz: false
+        }
+    }
+    componentDidMount() {
+        window.addEventListener('resize', this.handleWindowSizeChange);
+        if(this.state.width > 800) {
+            this.setState({
+                menu: true
+            })
+        }
+        else {
+            this.setState({
+                menu:false
+            })
         }
     }
 
+    // make sure to remove the listener
+// when the component is not mounted anymore
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleWindowSizeChange);
+    }
+    handleWindowSizeChange = () => {
+        this.setState({ width: window.innerWidth });
+    };
     onAnswerClickHandler = answerId => {
 
         // check right. if double click on right answer
@@ -49,6 +72,7 @@ class Quiz extends Component {
                         activeQuestion: this.state.activeQuestion + 1,
                         answerState: null,
                         checkpoint: this.props.quizData[this.state.activeQuestion].money
+
                     })
                 }
                 clearTimeout(timeout)
@@ -62,7 +86,6 @@ class Quiz extends Component {
                     isFinished: true,
                 })
             }, 2000)
-
         }
     }
 
@@ -79,6 +102,7 @@ class Quiz extends Component {
     }
 
     toggleMenuHandler = () => {
+
         this.setState({
             menu: !this.state.menu
         })
@@ -90,43 +114,47 @@ class Quiz extends Component {
     }
 
     render() {
-        // console.log(this.props.quizData,'this.props.quizData');
+        const { width } = this.state;
+        const isMobile = width <= 800;
+        // the rest is the same...
 
-        return (
-            <div className={classes.Quiz}>
-                <div className={classes.QuizWrapper}>
+            return (
+                <div className={classes.Quiz}>
+                    <div className={classes.QuizWrapper}>
 
-                    {this.state.isFinished
-                        ? <FinishedQuiz
-                            onRetry={this.retryHandler}
-                            checkpoint={this.state.checkpoint}
-                        />
-                        :
-                        <>
-                            <Drawer isOpen={this.state.menu}
-                                    onClose={this.menuCloseHandler}
-                                    quizData={this.props.quizData}
+                        {this.state.isFinished
+                            ? <FinishedQuiz
+                                onRetry={this.retryHandler}
+                                checkpoint={this.state.checkpoint}
                             />
+                            :
+                            <>
+                                <Drawer isOpen={this.state.menu}
+                                        onClose={this.menuCloseHandler}
+                                        quizData={this.props.quizData}
+                                        activeQuiz={this.state.activeQuestion }
 
-                            <MenuToggle
-                                onToggle={this.toggleMenuHandler}
-                                isOpen={this.state.menu}
-                            />
-                            <ActiveQuiz
-                                answers={this.props.quizData[this.state.activeQuestion].answers}
-                                question={this.props.quizData[this.state.activeQuestion].question}
-                                onAnswerClick={this.onAnswerClickHandler}
-                                quizLength={this.props.quizData.length}
-                                answerNumber={this.state.activeQuestion + 1}
-                                state={this.state.answerState}
-                            />
-                        </>
+                                />
+                                {isMobile &&
+                                    <MenuToggle
+                                        onToggle={this.toggleMenuHandler}
+                                        isOpen={this.state.menu}
+                                    />
+                                }
 
-                    }
-
+                                <ActiveQuiz
+                                    answers={this.props.quizData[this.state.activeQuestion].answers}
+                                    question={this.props.quizData[this.state.activeQuestion].question}
+                                    onAnswerClick={this.onAnswerClickHandler}
+                                    quizLength={this.props.quizData.length}
+                                    answerNumber={this.state.activeQuestion + 1}
+                                    state={this.state.answerState}
+                                />
+                            </>
+                        }
+                    </div>
                 </div>
-            </div>
-        )
+            );
     }
 }
 

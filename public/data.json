@@ -5,6 +5,7 @@
         "currencySymbol": "$",
         "money": 500,
         "id": 1,
+        "prevQuiz": false,
         "answers": [
           {
             "text": "Черный",
@@ -30,6 +31,7 @@
         "currencySymbol": "$",
         "money": 1000,
         "id": 2,
+        "prevQuiz": false,
         "answers": [
           {
             "text": "1700",
