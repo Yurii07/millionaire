@@ -1,5 +1,23 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+## Build Setup:
+
+``` bash
+# Download repository:
+https://github.com/Yurii07/millionaire.git
+
+# Go to the app:
+cd millionaire
+
+# Install dependencies:
+npm install
+
+# Server with hot reload at http://localhost:3000/
+npm start
+
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
