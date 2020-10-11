@@ -17,7 +17,6 @@ class Quiz extends Component {
             checkpoint: null,
             menu: false,
             width: window.innerWidth,
-            prevQuiz: false
         }
     }
     componentDidMount() {

@@ -11,6 +11,7 @@ const App = () => {
         fetch('https://yurii07.github.io/millionaire/data.json')
             .then(response => response.json())
             .then(data => {
+                console.log(data,'data');
                 setQuiz(data);
             })
             .catch(err => console.error(this.props.url, err.toString()))
