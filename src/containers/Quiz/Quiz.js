@@ -42,6 +42,7 @@ class Quiz extends Component {
         this.setState({ width: window.innerWidth });
     };
     onAnswerClickHandler = answerId => {
+       // this.props.quizData[0].prevQuiz = true;
 
         // check right. if double click on right answer
         if (this.state.answerState) {
@@ -66,12 +67,12 @@ class Quiz extends Component {
                         checkpoint: this.props.quizData[this.state.activeQuestion].money
                     })
                 } else {
-
+                    this.props.quizData[0].prevQuiz = true;
                     this.setState({
                         activeQuestion: this.state.activeQuestion + 1,
                         answerState: null,
-                        checkpoint: this.props.quizData[this.state.activeQuestion].money
-
+                        checkpoint: this.props.quizData[this.state.activeQuestion].money,
+                        prevQuiz: 1
                     })
                 }
                 clearTimeout(timeout)
@@ -132,7 +133,6 @@ class Quiz extends Component {
                                         onClose={this.menuCloseHandler}
                                         quizData={this.props.quizData}
                                         activeQuiz={this.state.activeQuestion }
-
                                 />
                                 {isMobile &&
                                     <MenuToggle

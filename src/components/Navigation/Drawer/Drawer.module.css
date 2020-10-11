@@ -70,3 +70,7 @@
     border: 1px solid #FF8B37;
     color: #FF8B37;
 }
+.Drawer .unactive {
+    border: 1px solid fuchsia;
+    color: fuchsia;
+}

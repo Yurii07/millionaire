@@ -8,16 +8,23 @@ class Drawer extends Component {
         this.state = { activeQuestion: 0 };
     }
 
+
     renderLinks() {
         return this.props.quizData.map((items, index) =>
 
-            <li className={this.props.activeQuiz === index ? classes.active : ''} key={index}>
+            <li className={
+                (this.props.activeQuiz === index ? classes.active : '')
+                || (this.props.quizData[index].prevQuiz ? classes.unactive : '' )} key={index}>
                 $ {items.money}
             </li>
         );
     }
 
     render() {
+// const xx = this.props.quizData[0].prevQuiz = true;
+//         console.log(this.props.quizData.prevQuiz,'this.props.quizData');
+//         console.log(xx,'xx');
+
 
         console.log(this.props.activeQuiz,'this.props.activeQuiz Drawer');
 
