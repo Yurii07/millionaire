@@ -1,35 +1,22 @@
 .AnswerItem {
-    border: 1px solid #D0D0D8;
+    border: none;
+    background: none;
     box-sizing: border-box;
-    padding: 5px 10px;
-    margin-bottom: 5px;
+    padding: 0;
+    margin: 5px 22px;
     cursor: pointer;
-    /*background: #fff;*/
-    color: #000;
-    display: flex;
-    justify-content: center;
-    width: 85%;
-    border-radius: 25px;
     position: relative;
-    background: #FFFFFF;
-    /*clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);*/
 }
-
 @media (max-width: 800px) {
     .AnswerItem {
         width: 100%;
     }
 }
 
-.AnswerItem:hover {
-    background: #FFFFFF;
-    transition: background .3s ease-in-out;
-    border: 1px solid #FF8B37;
-    box-sizing: border-box;
-}
+.AnswerItem:focus {outline:0;}
 
-.AnswerItem:hover:before, .AnswerItem:hover:after {
-    border: 1px solid #FF8B37;
+.AnswerItem:hover {
+    transition: background .3s ease-in-out;
 }
 
 .AnswerItem::before {
@@ -47,6 +34,25 @@
     width: 17px;
     right: -20px;
     border: 1px solid #D0D0D8;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.AnswerItem:hover:before {
+    content: "";
+    width: 17px;
+    left: -20px;
+    border: 1px solid #FF8B37;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.AnswerItem:hover:after {
+    content: "";
+    width: 17px;
+    right: -20px;
+    border: 1px solid #FF8B37;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

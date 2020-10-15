@@ -6,7 +6,7 @@
     flex-direction: column;
     display: grid;
     grid-template-columns: 50% 50%;
-    width: 500px;
+    /*width: 570px;*/
 }
 
 @media (max-width: 800px) {

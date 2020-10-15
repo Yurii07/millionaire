@@ -104,11 +104,11 @@ class Quiz extends Component {
     }
 
     toggleMenuHandler = () => {
-
         this.setState({
             menu: !this.state.menu
         })
     }
+
     menuCloseHandler = () => {
         this.setState({
             menu: false

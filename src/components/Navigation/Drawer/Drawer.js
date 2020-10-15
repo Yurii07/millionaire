@@ -17,7 +17,8 @@ class Drawer extends Component {
     }
 
     getMoneyCssClasses(index, items) {
-        return (this.props.activeQuiz === index ? classes.active : '') ||
+        return (this.props.activeQuiz === index ? classes.active : '')
+            ||
             (items.prevQuiz ? classes.unactive : '');
     }
 
