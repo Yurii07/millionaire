@@ -25,14 +25,14 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    width: 90%;
+    width: 100%;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column-reverse;    align-items: center;
 }
 
 .Drawer ul li {
     margin-bottom: 15px;
-    border: 1px solid #D0D0D8;
+    /*border: 1px solid #D0D0D8;*/
     box-sizing: border-box;
     padding: 5px 10px;
     color: #000;
@@ -40,13 +40,19 @@
     justify-content: center;
     border-radius: 25px;
     position: relative;
-    background: #FFFFFF;
+    /*background: #FFFFFF;*/
+    background: url(../../../img/step/button-step.png) no-repeat;
+    align-items: center;
+    height: 42px;
+    max-width: 240px;
+    width: 100%;
+
 }
 
 .Drawer ul li:before {
     content: "";
-    width: 17px;
-    left: -20px;
+    width: 69px;
+    left: -69px;
     border: 1px solid #D0D0D8;
     position: absolute;
     top: 50%;
@@ -55,8 +61,8 @@
 
 .Drawer ul li:after {
     content: "";
-    width: 17px;
-    right: -20px;
+    width: 69px;
+    right: -69px;
     border: 1px solid #D0D0D8;
     position: absolute;
     top: 50%;
@@ -80,29 +86,29 @@
 
 
 .Drawer .active {
-    background: #FFFFFF;
-    border: 1px solid #FF8B37;
     color: #FF8B37;
+    background: url(../../../img/step/button-active-step.png) no-repeat;
+    align-items: center;
+    height: 42px;
+    max-width: 240px;
 }
-
 .Drawer ul li.active:before {
     border: 1px solid #FF8B37;
 }
-
 .Drawer ul li.active:after {
     border: 1px solid #FF8B37;
 }
 
 .Drawer .unactive {
-    background: #FFFFFF;
-    border: 1px solid #D0D0D8;
+    background: url(../../../img/step/button-previous-step.png) no-repeat;
+    align-items: center;
+    height: 42px;
+    max-width: 240px;
     color: #D0D0D8;
 }
-
 .Drawer ul li.unactive:before {
     border: 1px solid #D0D0D8;
 }
-
 .Drawer ul li.unactive:after {
     border: 1px solid #D0D0D8;
 }

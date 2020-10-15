@@ -1,4 +1,7 @@
 .FinishedQuiz {
+    background-image: linear-gradient(148deg, #FFFFFF 50%, #FFF3EB 50%);
+    height: 100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +23,7 @@
 .FinishedQuiz .totalScore {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    /*width: 100%;*/
     justify-content: center;
 }
 

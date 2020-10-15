@@ -1,24 +1,22 @@
 .AnswerItem {
-    border: none;
-    background: none;
-    box-sizing: border-box;
-    padding: 0;
     margin: 5px 22px;
     cursor: pointer;
     position: relative;
+    width: 373px;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    outline: none;
+    color: #1C1C21;
+    background: url(../../../../img/button-inactive.png) no-repeat;
 }
 @media (max-width: 800px) {
     .AnswerItem {
         width: 100%;
     }
 }
-
 .AnswerItem:focus {outline:0;}
-
-.AnswerItem:hover {
-    transition: background .3s ease-in-out;
-}
-
 .AnswerItem::before {
     content: "";
     width: 17px;
@@ -28,7 +26,6 @@
     top: 50%;
     transform: translateY(-50%);
 }
-
 .AnswerItem::after {
     content: "";
     width: 17px;
@@ -39,6 +36,9 @@
     transform: translateY(-50%);
 }
 
+.AnswerItem:hover {
+    background: url(../../../../img/buton-hover.png) no-repeat;
+}
 .AnswerItem:hover:before {
     content: "";
     width: 17px;
@@ -58,25 +58,22 @@
     transform: translateY(-50%);
 }
 
-.AnswerItem.success {
-    background: #E6FAEA;
-    border: 1px solid #47D867;
-    box-sizing: border-box;
-    transition: .3s;
+.AnswerItem.correct {
+    background: url(../../../../img/button-correct.png) no-repeat;
 }
-
-.AnswerItem.success:before,
-.AnswerItem.success:after {
+.AnswerItem.correct:before,
+.AnswerItem.correct:after {
     border: 1px solid #47D867;
 }
 
-.AnswerItem.error {
-    background: #FDEEED;
+.AnswerItem.wrong {
+    background: url(../../../../img/button-wrong.png) no-repeat;
+}
+.AnswerItem.wrong:before,
+.AnswerItem.wrong:after {
     border: 1px solid #EC6259;
-    box-sizing: border-box;
 }
 
-.AnswerItem.error:before,
-.AnswerItem.error:after {
-    border: 1px solid #EC6259;
+.AnswerItem .itemSectionStyle .selected {
+    background: url(../../../../img/button-selected.png) no-repeat;
 }

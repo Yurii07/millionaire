@@ -11,7 +11,7 @@ class Quiz extends Component {
         super(props);
 
         this.state = {
-            isFinished: false,
+            isFinished: true,
             activeQuestion: 0,
             answerState: null, // { [id]: 'success' 'error' }
             checkpoint: null,
@@ -47,7 +47,7 @@ class Quiz extends Component {
         // check right. if double click on right answer
         if (this.state.answerState) {
             const key = Object.keys(this.state.answerState)[0]
-            if (this.state.answerState[key] === 'success') {
+            if (this.state.answerState[key] === 'correct') {
                 return
             }
         }
@@ -57,7 +57,7 @@ class Quiz extends Component {
         if (question.rightAnswerId === answerId) {
 
             this.setState({
-                answerState: {[answerId]: 'success'}
+                answerState: {[answerId]: 'correct'}
             })
 
             const timeout = setTimeout(() => {
@@ -79,7 +79,7 @@ class Quiz extends Component {
             }, 2000)
         } else {
             this.setState({
-                answerState: {[answerId]: 'error'}
+                answerState: {[answerId]: 'wrong'}
             })
             setTimeout(() => {
                 this.setState({
@@ -122,15 +122,13 @@ class Quiz extends Component {
 
             return (
                 <div className={classes.Quiz}>
-                    <div className={classes.Wrapper}>
-
                         {this.state.isFinished
                             ? <FinishedQuiz
                                 onRetry={this.retryHandler}
                                 checkpoint={this.state.checkpoint}
                             />
                             :
-                            <>
+                            <div className={classes.Wrapper}>
                                 <Drawer isOpen={this.state.menu}
                                         onClose={this.menuCloseHandler}
                                         quizData={this.props.quizData}
@@ -152,9 +150,9 @@ class Quiz extends Component {
                                     answerNumber={this.state.activeQuestion + 1}
                                     state={this.state.answerState}
                                 />
-                            </>
+                            </div>
                         }
-                    </div>
+
                 </div>
             );
     }
