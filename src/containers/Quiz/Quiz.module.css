@@ -12,7 +12,8 @@
 }
 
 .Quiz .Wrapper {
-    width: calc(100% - 300px);
+    width: 100%;
+    /*width: calc(100% - 300px);*/
 }
 
 @media (max-width: 800px) {
