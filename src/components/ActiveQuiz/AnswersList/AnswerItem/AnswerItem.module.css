@@ -13,7 +13,7 @@
 }
 @media (max-width: 800px) {
     .AnswerItem {
-        width: 100%;
+        /*width: 100%;*/
     }
 }
 .AnswerItem:focus {outline:0;}

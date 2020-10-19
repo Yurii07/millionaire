@@ -11,7 +11,7 @@ class Quiz extends Component {
         super(props);
 
         this.state = {
-            isFinished: true,
+            isFinished: false,
             activeQuestion: 0,
             answerState: null, // { [id]: 'success' 'error' }
             checkpoint: null,
