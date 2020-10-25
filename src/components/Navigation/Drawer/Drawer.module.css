@@ -15,6 +15,18 @@
     text-align: center;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+@media (max-width: 800px) {
+    .Drawer {
+        max-width: 275px;
+    }
+}
+@media (max-width: 576px) {
+    .Drawer {
+        max-width: 280px;
+        right: 0;
+    }
 }
 
 .Drawer.close {
