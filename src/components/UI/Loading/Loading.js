@@ -4,9 +4,8 @@ import classes from "./Loading.module.css"
 
 const Loading = () => {
     return (
-        <div>
+        <div className={classes.Wrapper}>
             <img src={LoadingImg} className={classes.Loading} alt="Loading"/>
-{}
         </div>
 
     );

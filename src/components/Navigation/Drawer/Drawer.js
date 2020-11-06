@@ -23,7 +23,7 @@ class Drawer extends Component {
     }
 
     render() {
-        console.log(this.props.activeQuiz, 'this.props.activeQuiz Drawer');
+        // console.log(this.props.activeQuiz, 'this.props.activeQuiz Drawer');
 
         const cls = [classes.Drawer]
         if (!this.props.isOpen) {

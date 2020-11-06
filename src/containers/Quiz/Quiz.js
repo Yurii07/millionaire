@@ -4,7 +4,6 @@ import ActiveQuiz from "../../components/ActiveQuiz/ActiveQuiz";
 import FinishedQuiz from "../../components/FinishedQuiz/FinishedQuiz";
 import Drawer from "../../components/Navigation/Drawer/Drawer";
 import MenuToggle from "../../components/Navigation/MenuToggle/MenuToggle";
-import Loading from "../../components/UI/Loading/Loading";
 
 class Quiz extends Component {
 
@@ -34,11 +33,8 @@ class Quiz extends Component {
         this.setState({
             menu: false
         })
-
     }
 
-    // make sure to remove the listener
-// when the component is not mounted anymore
     componentWillUnmount() {
         window.removeEventListener('resize', this.handleWindowSizeChange);
     }
@@ -46,8 +42,8 @@ class Quiz extends Component {
     handleWindowSizeChange = () => {
         this.setState({width: window.innerWidth});
     };
+
     onAnswerClickHandler = answerId => {
-        // this.props.quizData[0].prevQuiz = true;
 
         // check right. if double click on right answer
         // if (this.state.answerState) {
@@ -65,14 +61,15 @@ class Quiz extends Component {
         if (question.rightAnswerId === answerId) {
 
             this.setState({
-                answerState: {[answerId]: 'correct'}
-            })
-
-            this.setState({
                 isFetching: true,
                 isLoading: true
-
             })
+
+            setTimeout(() => {
+                this.setState({
+                    answerState: {[answerId]: 'correct'}
+                })
+            }, 2000)
 
             const timeout = setTimeout(() => {
                 if (this.isQuizFinished()) {
@@ -90,24 +87,30 @@ class Quiz extends Component {
                     answerState: null,
                     checkpoint: this.props.quizData[this.state.activeQuestion].money,
                     isFetching: false,
-                    isLoading:false
+                    isLoading: false
                 })
 
                 clearTimeout(timeout)
 
-            }, 2000)
+            }, 3000)
 
             return;
         }
-
         this.setState({
-            answerState: {[answerId]: 'wrong'}
+            isLoading: true,
         })
         setTimeout(() => {
             this.setState({
-                isFinished: true,
+                answerState: {[answerId]: 'wrong'}
             })
         }, 2000)
+
+        setTimeout(() => {
+            this.setState({
+                isLoading: false,
+                isFinished: true,
+            })
+        }, 3000)
 
     }
 
@@ -140,7 +143,6 @@ class Quiz extends Component {
     render() {
         const {width} = this.state;
         const isMobile = width <= 800;
-        // the rest is the same...
 
         return (
             <div className={classes.Quiz}>
@@ -173,13 +175,10 @@ class Quiz extends Component {
                             state={this.state.answerState}
                             loading={this.state.isLoading}
                         />
-
-
                     </div>
                 }
-
             </div>
-        );
+        )
     }
 }
 

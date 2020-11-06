@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import classes from './AnswersList.module.css';
 import AnswerItem from "./AnswerItem/AnswerItem";
+import PropTypes from "prop-types"
 
 const AnswersList = (props) => (
     <div className={classes.AnswersList}>
@@ -16,5 +17,9 @@ const AnswersList = (props) => (
         })}
     </div>
 );
+
+AnswersList.propTypes = {
+    answers: PropTypes.array.isRequired,
+}
 
 export default AnswersList;

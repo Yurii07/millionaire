@@ -5,14 +5,12 @@ import Loading from "../UI/Loading/Loading";
 
 const ActiveQuiz = (props) => {
 
-    const {answerNumber, question, quizLength, state, answers, onAnswerClick, onLoad} = props;
+    const {answerNumber, question, quizLength, state, answers, onAnswerClick, onLoad,loading} = props;
 
     return (
         <div className={classes.ActiveQuiz}>
-            {props.loading && <Loading >
 
-            </Loading>}
-
+            {loading && <Loading />}
 
             <p className={classes.Question}>
             <span className={classes.question}>
@@ -26,10 +24,10 @@ const ActiveQuiz = (props) => {
                 answers={answers}
                 onAnswerClick={onAnswerClick}
             />
-
         </div>
     )
-
 };
+
+
 
 export default ActiveQuiz;
