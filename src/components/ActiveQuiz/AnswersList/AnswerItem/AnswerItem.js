@@ -1,14 +1,16 @@
 import React from 'react';
-import classes from './AnswerItem.module.css';
+import './AnswerItem.css';
+import classNames from 'classnames';
 
 const AnswerItem = (props) => {
-    const cls = [classes.AnswerItem]
 
-    if (props.state) {
-        cls.push(classes[props.state])
-    }
+    const cls = classNames('AnswerItem', {
+        'correct': props.state === 'correct',
+        'wrong': props.state === 'wrong'
+    })
+
     return (
-        <div className={cls.join(' ')}
+        <div className={cls}
              onClick={() => {
                  props.onAnswerClick(props.answer.id)
              }}>
