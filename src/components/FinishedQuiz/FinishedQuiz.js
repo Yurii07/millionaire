@@ -4,6 +4,7 @@ import thumbsUp from '../../img/hand-1.svg';
 import Button from "../UI/Button/Button";
 
 const FinishedQuiz = (props) => {
+    const {checkpoint, onRetry} = props;
     return (
         <div className={classes.FinishedQuiz}>
             <div className="imgWrapper">
@@ -11,8 +12,8 @@ const FinishedQuiz = (props) => {
             </div>
             <div className={classes.totalScore}>
                 <h2>Total score:</h2>
-                <div className="earned">${props.checkpoint} earned</div>
-                <Button onClick={props.onRetry}>
+                <div className="earned">${checkpoint} earned</div>
+                <Button onClick={onRetry}>
                     Try again
                 </Button>
             </div>
