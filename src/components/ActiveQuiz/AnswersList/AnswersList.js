@@ -8,13 +8,13 @@ const propTypes = {
 }
 
 const AnswersList = (props) => {
-    const {onAnswerClick, state} = props;
+    const {onAnswerClick,state} = props;
 
     return (
         <div className={classes.AnswersList}>
 
-            {props.answers.map((answer, index) => {
-                return (
+            {props.answers.map((answer,index)=> {
+                return(
                     <AnswerItem
                         key={index}
                         answer={answer}

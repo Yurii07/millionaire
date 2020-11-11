@@ -1,25 +1,30 @@
 import React from 'react'
 import classes from './MenuToggle.module.css'
+import cn from 'classnames';
+import PropTypes from "prop-types";
+
+const propTypes = {
+    isOpen: PropTypes.bool.isRequired
+}
 
 const MenuToggle = props => {
-    const cls = [
-        classes.MenuToggle,
-        'fa'
-    ]
 
-    if (props.isOpen) {
-        cls.push('fa-times')
-        cls.push(classes.open)
-    } else {
-        cls.push('fa-bars')
-    }
+    const {isOpen, onToggle} = props;
+
+    const cls = cn(
+        classes.MenuToggle, 'fa', 'fa-bars', {
+            'fa-times': isOpen,
+            [classes.open]: isOpen
+        })
 
     return (
         <i
-            className={cls.join(' ')}
-            onClick={props.onToggle}
+            className={cls}
+            onClick={onToggle}
         />
     )
 }
+
+MenuToggle.propTypes = propTypes;
 
 export default MenuToggle

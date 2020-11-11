@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import classes from './Drawer.module.css'
 // import Backdrop from "../../UI/Backdrop/Backdrop";
+import cn from 'classnames';
 
 class Drawer extends Component {
     constructor(props) {
@@ -23,16 +24,16 @@ class Drawer extends Component {
     }
 
     render() {
-        // console.log(this.props.activeQuiz, 'this.props.activeQuiz Drawer');
 
-        const cls = [classes.Drawer]
-        if (!this.props.isOpen) {
-            cls.push(classes.close)
-        }
+        const cls = cn(
+            [classes.Drawer], {
+                [classes.close]: !this.props.isOpen
+            }
+        )
 
         return (
             <>
-                <nav className={cls.join(' ')}>
+                <nav className={cls}>
                     <ul>
                         {this.renderLinks()}
                     </ul>

@@ -2,6 +2,12 @@ import React from 'react';
 import classes from './FinishedQuiz.module.css';
 import thumbsUp from '../../img/hand-1.svg';
 import Button from "../UI/Button/Button";
+import PropTypes from "prop-types";
+
+const propTypes = {
+    checkpoint: PropTypes.string.isRequired,
+    onRetry: PropTypes.func.isRequired
+}
 
 const FinishedQuiz = (props) => {
     const {checkpoint, onRetry} = props;
@@ -20,5 +26,7 @@ const FinishedQuiz = (props) => {
         </div>
     );
 };
+
+FinishedQuiz.propTypes = propTypes;
 
 export default FinishedQuiz;

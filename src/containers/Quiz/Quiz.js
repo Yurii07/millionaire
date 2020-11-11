@@ -4,12 +4,15 @@ import ActiveQuiz from "../../components/ActiveQuiz/ActiveQuiz";
 import FinishedQuiz from "../../components/FinishedQuiz/FinishedQuiz";
 import Drawer from "../../components/Navigation/Drawer/Drawer";
 import MenuToggle from "../../components/Navigation/MenuToggle/MenuToggle";
+import Loading from "../../components/UI/Loading/Loading";
 
 class Quiz extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            isLoaded: false,
+            items: [],
             isFetching: false,
             isFinished: false,
             activeQuestion: 0,
@@ -22,6 +25,28 @@ class Quiz extends Component {
     }
 
     componentDidMount() {
+
+        fetch("https://yurii07.github.io/millionaire/data.json")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    setTimeout(() => {
+                        this.setState({
+                            isLoaded: true,
+                            items: result
+                        });
+                    }, 1000)
+                },
+                // Note: it's important to handle errors here, and not in the catch () block,
+                // so as not to catch exceptions from errors in the components themselves.
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
+
         window.addEventListener('resize', this.handleWindowSizeChange);
         if (this.state.width > 800) {
             this.setState({
@@ -56,7 +81,7 @@ class Quiz extends Component {
             return
         }
 
-        const question = this.props.quizData[this.state.activeQuestion]
+        const question = this.state.items[this.state.activeQuestion]
 
         if (question.rightAnswerId === answerId) {
 
@@ -74,18 +99,27 @@ class Quiz extends Component {
             const timeout = setTimeout(() => {
                 if (this.isQuizFinished()) {
                     this.setState({
+                        isLoaded: false,
                         isFinished: true,
-                        checkpoint: this.props.quizData[this.state.activeQuestion].money
+                        checkpoint: this.state.items[this.state.activeQuestion].money
                     })
                     return;
                 }
 
-                this.props.quizData[this.state.activeQuestion].prevQuiz = true;
+                // this.state.items[this.state.activeQuestion].prevQuiz = true;
+                this.setState(({items})=>{
+                    // let newItems = Object.assign([],items);
+                    let newItems = [...items];
+                    newItems[this.state.activeQuestion].prevQuiz = true;
+                    return {
+                        items:newItems
+                    }
+                })
 
                 this.setState({
                     activeQuestion: this.state.activeQuestion + 1,
                     answerState: null,
-                    checkpoint: this.props.quizData[this.state.activeQuestion].money,
+                    checkpoint: this.state.items[this.state.activeQuestion].money,
                     isFetching: false,
                     isLoading: false
                 })
@@ -115,7 +149,7 @@ class Quiz extends Component {
     }
 
     isQuizFinished() {
-        return this.state.activeQuestion + 1 === this.props.quizData.length
+        return this.state.activeQuestion + 1 === this.state.items.length
     }
 
     retryHandler = () => {
@@ -141,44 +175,46 @@ class Quiz extends Component {
     }
 
     render() {
-        const {width} = this.state;
+        const {width, error, isLoaded, items, activeQuestion, answerState, isLoading, menu, checkpoint, isFinished} = this.state;
         const isMobile = width <= 800;
 
-        return (
-            <div className={classes.Quiz}>
-                {this.state.isFinished
-                    ? <FinishedQuiz
-                        onRetry={this.retryHandler}
-                        checkpoint={this.state.checkpoint}
-                    />
-                    :
-                    <div className={classes.Wrapper}>
-                        <Drawer isOpen={this.state.menu}
-                                onClose={this.menuCloseHandler}
-                                quizData={this.props.quizData}
-                                activeQuiz={this.state.activeQuestion}
+        if (error) {
+            return <div>Error: {error.message}</div>;
+        } else if (!isLoaded) {
+            return <Loading/>;
+        } else {
+            return (
+                <div className={classes.Quiz}>
+                    {isFinished
+                        ? <FinishedQuiz
+                            onRetry={this.retryHandler}
+                            checkpoint={checkpoint}/>
+                        :
+                        <div className={classes.Wrapper}>
+                            <Drawer isOpen={menu}
+                                    onClose={this.menuCloseHandler}
+                                    quizData={items}
+                                    activeQuiz={activeQuestion}/>
 
-                        />
-                        {isMobile &&
-                        <MenuToggle
-                            onToggle={this.toggleMenuHandler}
-                            isOpen={this.state.menu}
-                        />
-                        }
+                            {isMobile &&
+                            <MenuToggle
+                                onToggle={this.toggleMenuHandler}
+                                isOpen={menu}/>
+                            }
 
-                        <ActiveQuiz
-                            answers={this.props.quizData[this.state.activeQuestion].answers}
-                            question={this.props.quizData[this.state.activeQuestion].question}
-                            onAnswerClick={this.onAnswerClickHandler}
-                            quizLength={this.props.quizData.length}
-                            answerNumber={this.state.activeQuestion + 1}
-                            state={this.state.answerState}
-                            loading={this.state.isLoading}
-                        />
-                    </div>
-                }
-            </div>
-        )
+                            <ActiveQuiz
+                                answers={items[activeQuestion].answers}
+                                question={items[activeQuestion].question}
+                                onAnswerClick={this.onAnswerClickHandler}
+                                quizLength={items.length}
+                                answerNumber={activeQuestion + 1}
+                                state={answerState}
+                                loading={isLoading}/>
+                        </div>
+                    }
+                </div>
+            );
+        }
     }
 }
 
