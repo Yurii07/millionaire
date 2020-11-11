@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8a3254061b40dff1a7a876d795b09608",
+    "revision": "220c034fb98e40a20cfe40475ce2cf3c",
     "url": "/millionaire/index.html"
   },
   {
-    "revision": "9655481cb48cf9b4bae8",
-    "url": "/millionaire/static/css/main.104076ed.chunk.css"
+    "revision": "5cf1f01dc63a1bd510da",
+    "url": "/millionaire/static/css/main.b71629bc.chunk.css"
   },
   {
-    "revision": "7739a1161e8d4e9e4172",
-    "url": "/millionaire/static/js/2.17bdd12a.chunk.js"
+    "revision": "88bafdb372bce40cc237",
+    "url": "/millionaire/static/js/2.e11b7bf1.chunk.js"
   },
   {
-    "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/millionaire/static/js/2.17bdd12a.chunk.js.LICENSE.txt"
+    "revision": "5ac48c47bb3912b14c2d8de4f56d5ae8",
+    "url": "/millionaire/static/js/2.e11b7bf1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9655481cb48cf9b4bae8",
-    "url": "/millionaire/static/js/main.f1e6c1f3.chunk.js"
+    "revision": "5cf1f01dc63a1bd510da",
+    "url": "/millionaire/static/js/main.5534c532.chunk.js"
   },
   {
     "revision": "078e70291101148e5f5b",
